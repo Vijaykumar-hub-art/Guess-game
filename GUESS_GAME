@@ -1,0 +1,60 @@
+import time
+import random
+name1=input("enter the name of player-1:")
+name2=input("enter the name of player-2:")
+print("hello!,{} and {}".format(name1,name2))
+print("the computer has been fixed 5 numbers")
+print("the both players have 3 chances to predict the values")
+nums=[]
+while(len(nums)!=5):
+    d=random.randint(1,10)
+    if(d in nums):
+        continue
+    else:
+        nums.append(d)
+player1=[]
+player2=[]
+s1=0
+s2=0
+for i in range (3):
+    print("{} enter ur guess".format(name1))
+    ans=int(input("enter the value from 1-9:"))
+    if (ans not in player1 or ans not in player2):
+        player1.append(ans)
+        if(ans in nums):
+            print("-------->correct")
+            s1=s1+1
+        else:
+            print("-------->wrong")
+    else:
+        ans=input("enter the correct value")
+            
+    print("{} enter ur guess".format(name2))
+    ans=int(input("enter the value from 1-9:"))
+    if (ans not in player1 or ans not in player2):
+        player2.append(ans)
+        if(ans in nums):
+            print("-------->correct")
+            s2=s2+1
+        else:
+            print("-------->wrong")
+    else:
+        print("enter the correct value")
+        
+time.sleep(2)
+print("the computer predicted values are {}".format(nums))
+print("-----------------")
+print("the predicted values of player-1 are {}".format(player1))
+print("the score of player1 is {}".format(s1))
+print("-----------------")
+print("the predicted values of player-2 are {}".format(player2))
+print("the score of player2 is {}".format(s2))
+print("-----------------")
+if(s1>s2):
+    print("{} is the winner".format(name1))
+elif(s1<s2):
+    print("{} is the winner".format(name2))
+else:
+    print("the {} and {} score are equal.the match has been draw".format(name1,name2))
+    
+    
